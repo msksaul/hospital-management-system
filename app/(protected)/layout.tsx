@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar'
 import Sidebar from '@/components/sidebar'
 import React from 'react'
 
@@ -8,7 +9,7 @@ const PretectedLayout = ({children}: {children: React.ReactNode}) => {
         <Sidebar />
       </div>
       <div className='w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#f7f8fa] flex flex-col'>
-        navbar
+        <Navbar />
         <div className='h-full w-full p-2 overflow-y-scroll'>{children}</div>
       </div>
     </div>
