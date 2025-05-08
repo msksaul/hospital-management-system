@@ -4,8 +4,8 @@ type RouteAccessProps = {
 
 
 export const routeAccess: RouteAccessProps = {
-  '/admin(.*)': ['admin'],
-  '/patient(.*)': ['admin', 'patient', 'doctor'],
+  "/admin(.*)": ["admin"],
+  "/patient(.*)": ["patient", "admin", "doctor", "nurse"],
   "/doctor(.*)": ["doctor"],
   "/staff(.*)": ["nurse", "lab_technician", "cashier"],
   "/record/users": ["admin"],

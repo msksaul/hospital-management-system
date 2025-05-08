@@ -17,11 +17,13 @@ export default clerkMiddleware(async (auth, request) => {
     ? 'patient'
     : 'sign-in'
 
-    const matchingRoute = matchers.find(({ matcher }) => matcher(request))
+  const matchingRoute = matchers.find(({ matcher }) => matcher(request))
+  
+  if(matchingRoute && !matchingRoute.allowedRoles.includes(String(role))) {
+    return NextResponse.redirect(new URL(`/${role}`, url.origin))
+  }
 
-    if(matchingRoute && !matchingRoute.allowedRoles.includes(role)) {
-      return NextResponse.redirect(new URL(`/${role}`, url.origin))
-    }
+  return NextResponse.next()
 });
 
 export const config = {
